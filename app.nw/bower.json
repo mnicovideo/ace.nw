@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.1.0",
-    "ace-builds": "~1.1.1"
+    "ace-builds": "~1.1.1",
+    "jquery": "~2.1.0"
   }
 }
