@@ -1,0 +1,9 @@
+{
+  "name": "ace.nw",
+  "main": "app.html",
+  "license": "MIT",
+  "window": {
+    "frame": true,
+    "toolbar": false
+  }
+}
