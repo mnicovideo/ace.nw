@@ -108,17 +108,29 @@ newFile();
 editor.focus();
 //
 $('#new').click(function(evt) {
-    if ($('#hasChanged:checked').val() && !window.confirm('Are you sure?')) {
-        editor.focus();
-        return;
+    if ($('#hasChanged:checked').val()) {
+        if ($('#fileEntry').val()) {
+            $('#save').trigger('click');
+        } else {
+            if (!window.confirm('Are you sure?')) {
+                editor.focus();
+                return;
+            }
+        }
     }
     newFile();
     editor.focus();
 });
 $('#open').click(function(evt) {
-    if ($('#hasChanged:checked').val() && !window.confirm('Are you sure?')) {
-        editor.focus();
-        return;
+    if ($('#hasChanged:checked').val()) {
+        if ($('#fileEntry').val()) {
+            $('#save').trigger('click');
+        } else {
+            if (!window.confirm('Are you sure?')) {
+                editor.focus();
+                return;
+            }
+        }
     }
     $('#openFile').trigger('click');
     editor.focus();
