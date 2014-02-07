@@ -146,7 +146,7 @@ $('#save').click(function(evt) {
     editor.focus();
 });
 $('#editmodestring').click(function(evt) {
-    $('#editmode').show();
+    $('#editmode').show().focus();
 });
 $('#editmode').change(function(evt) {
     setMode($(this).val());
