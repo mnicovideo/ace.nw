@@ -33,6 +33,7 @@ function readFileIntoEditor(theFileEntry) {
         if (err) {
             console.log('Read failed: ' + err);
             window.alert('Read failed: ' + err);
+            return -1;
         }
         editor.setValue(String(data), -1);
         var mode = handleDocumentChange(theFileEntry);
@@ -47,7 +48,7 @@ function writeEditorToFile(theFileEntry) {
         if (err) {
             console.log('Write failed: ' + err);
             window.alert('Write failed: ' + err);
-            return;
+            return -1;
         }
         var mode = handleDocumentChange(theFileEntry);
         setMode(mode);
@@ -114,7 +115,8 @@ $('#new').click(function(evt) {
         } else {
             if (!window.confirm('Are you sure?')) {
                 editor.focus();
-                return;
+                evt.stopImmediatePropagation();
+                return false;
             }
         }
     }
@@ -128,7 +130,8 @@ $('#open').click(function(evt) {
         } else {
             if (!window.confirm('Are you sure?')) {
                 editor.focus();
-                return;
+                evt.stopImmediatePropagation();
+                return false;
             }
         }
     }
@@ -157,7 +160,8 @@ $('#editmode').change(function(evt) {
 $('#openFile').change(function(evt) {
     if (!$(this).val()) {
         editor.focus();
-        return;
+        evt.stopImmediatePropagation();
+        return false;
     }
     onChosenFileToOpen($(this).val());
     editor.focus();
